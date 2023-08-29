@@ -5,6 +5,10 @@ import weka.core.{EuclideanDistance, Instance, Instances, SelectedTag}
 
 import scala.collection.mutable
 
+/**
+ * Implements the CortioStriatalLoop algorithm as described in
+ * https://www.frontiersin.org/articles/10.3389/fncom.2011.00050/full
+ */
 class CorticoStriatalLoop extends AbstractClassifier{
 
   private var root: Node = null

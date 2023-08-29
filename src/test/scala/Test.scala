@@ -1,3 +1,5 @@
+import weka.classifiers.pmml.consumer.NeuralNetwork
+import weka.classifiers.rules.DecisionTable
 import weka.core.Instances
 
 import scala.io.Source
@@ -13,7 +15,7 @@ object Test extends App {
     "primary-tumor", "segment", "sick", "sonar", "soybean", "splice", "vehicle", "vote", "vowel", "waveform-5000",
     "zoo"
   )
-  val classifiers = Seq(new CorticoStriatalLoop)
+  val classifiers = Seq(new CorticoStriatalLoop, new DecisionTable)
   datasetNames.foreach{u =>
     val instances = new Instances(Source.fromURL(getClass.getResource(prefix + u + suffix)).reader())
     instances.setClassIndex(instances.numAttributes() - 1)
