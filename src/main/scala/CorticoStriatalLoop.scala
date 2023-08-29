@@ -42,7 +42,10 @@ class CorticoStriatalLoop extends AbstractClassifier{
       val kMeans = new SimpleKMeans()
       kMeans.setInitializationMethod(new SelectedTag(SimpleKMeans.KMEANS_PLUS_PLUS, SimpleKMeans.TAGS_SELECTION))
       kMeans.setNumClusters(k)
+      val classIndex = instances.classIndex()
+      instances.setClassIndex(-1)
       kMeans.buildClusterer(instances)
+      instances.setClassIndex(classIndex)
       kMeans
     }
 
